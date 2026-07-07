@@ -1,0 +1,79 @@
+# Site Reliability Engineering (SRE) — Learning Notes
+
+Personal notes on SRE fundamentals, concepts, and incident management — for later revision.
+
+## 1. Monitoring
+
+Monitoring means configuring alerts based on key metrics, for example:
+- Disk space usage crossing a threshold
+- CPU/memory utilization spikes
+- Service downtime or failed health checks
+
+**As an SRE, the first thing to do is monitor the application.** If there's no alerting system in place, configure one. When an issue occurs, learn from it and make sure it never repeats — either by collaborating with other teams or getting to the root cause and using automation to reduce future downtime.
+
+---
+
+## 2. Incident Management
+
+Incident management covers:
+- How you **handle** an incident
+- Which **teams** you involve
+- How you **reduce downtime**
+- Coordinating with other teams that own specific services (e.g., a partner team managing a particular microservice)
+
+### Activities in Successful Incident Management
+
+```
+Detect incident → Log incident → Classify incident → Diagnose incident
+        → Resolve incident → Close incident → Review incident
+```
+
+### 2.1 Incident Detection / Reporting
+- **Monitoring Systems**: Continuous monitoring of systems, applications, and infrastructure to detect abnormalities, anomalies, or deviations from expected behavior.
+- **Alerting**: Configuring mechanisms to notify the right personnel/teams when predefined thresholds or conditions are breached.
+- **User Reports**: Customers may report incidents via customer support, feedback forms, or service status pages.
+- **Internal Reports**: Team members and automated systems may generate incident reports based on observed issues.
+
+### 2.2 Incident Triage
+- **Prioritization**: Evaluate the severity and impact of the incident to prioritize the response, based on potential impact on users and business operations.
+- **Assignment**: Assign responsibilities to the appropriate individuals or teams based on expertise and availability.
+
+### 2.3 Incident Response
+- **Communication**: Establish channels to coordinate the response. Notify relevant stakeholders, including internal teams and, if necessary, customers.
+- **Documentation**: Begin documenting the incident — initial observations, actions taken, and any relevant information for resolution.
+
+### 2.4 Resolution
+- **Mitigation**: Implement temporary fixes or workarounds to restore service functionality quickly.
+- **Permanent Fixes**: Develop and deploy permanent solutions that address the root cause and prevent recurrence.
+
+### 2.5 Communication and Reporting
+- **Status Updates**: Provide regular updates to stakeholders throughout the incident lifecycle.
+- **Closure**: Communicate resolution to internal teams and, if applicable, customers.
+
+### 2.6 Post-Incident Review (PIR)
+- **Learning Opportunity**: Analyze the incident response, identify areas for improvement, and learn from the experience.
+- **Documentation**: Document lessons learned, update runbooks/documentation, and share insights with the broader team to improve future incident responses.
+
+> Following a well-defined incident management process helps organizations minimize incident impact, improve system resilience, and enhance overall service reliability.
+
+### Example Toolchain by Stage
+
+| Stage | Example Tools |
+|---|---|
+| Incident Detection / Monitoring | New Relic, SolarWinds |
+| Alerting | OpsGenie |
+| User Reports | ServiceNow, Jira |
+| Communication | Slack, OpsGenie |
+| Documentation | Confluence |
+| Permanent Fixes / Resolution | Jira, ServiceNow |
+
+
+
+---
+
+## 3. Observability & Anti-Fragility
+
+- **Observability**: Understanding system performance using logs and monitoring data.
+- **Anti-fragility**: A system's ability to benefit from shocks or failures — becoming stronger and more reliable over time, rather than just surviving disruptions.
+
+-
